@@ -5,7 +5,9 @@ const port = 3000; // You can choose any available port
 
 var admin = require("firebase-admin");
 
-var serviceAccount = require("E:/Cutomerfeedbackapi/config/serviceAccountKey.json");
+// var serviceAccount = require("E:/Cutomerfeedbackapi/config/serviceAccountKey.json");
+const serviceAccount = JSON.parse(process.env.SERVICE_ACCOUNT_KEY);
+
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
