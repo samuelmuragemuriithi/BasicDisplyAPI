@@ -63,9 +63,10 @@ const axios = require('axios');
 // });
 
 app.get('/fetch-instagram-data', async (req, res) => {
+  const IG_ACCESS_TOKEN = process.env.IG_ACCESS_TOKEN
   try {
     const response = await axios.get(`https://graph.instagram.com/me/media?fields=id,media_type,media_url,timestamp,permalink,username,thumbnail_url,children,
-    caption&access_token=IGQWRNWW04Y1BIUlp3ZAzFDdXRfeGpQWkEwR3QxcmFpMGVlYVRvdTJoa18wVFYxbGpzNjJ1dFI0a3lSb2hxWk0xekRVWGhmaTFJbXNoX2N2dUV3bjdhUGFsMko2TGk3VE4zSkVRV1dHSU1sRXlkX2tXTEpkbUdhT1EZD`);
+    caption&access_token=${IG_ACCESS_TOKEN}`);
 
     // Firestore setup (assuming you have initialized Firebase)
     const firestore = admin.firestore();
